@@ -37,3 +37,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+misc.xml
+encodings.xml
+vcs.xml
