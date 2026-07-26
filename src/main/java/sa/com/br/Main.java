@@ -2,7 +2,7 @@ package sa.com.br;
 
 import sa.com.br.enums.Category;
 import sa.com.br.model.Task;
-import sa.com.br.model.TaskManager;
+import sa.com.br.service.TaskService;
 
 import java.time.LocalDateTime;
 import java.time.Month;
@@ -11,8 +11,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LocalDateTime deadlineTaskOne = LocalDateTime.of(2026, Month.DECEMBER, 31, 12, 30);
-        LocalDateTime deadlineTaskTwo = LocalDateTime.of(2026, Month.SEPTEMBER, 20, 10, 30);
+        LocalDateTime deadlineTaskOne = LocalDateTime.of(
+                2026, Month.DECEMBER, 31, 12, 30);
+
+        LocalDateTime deadlineTaskTwo = LocalDateTime.of(
+                2026, Month.SEPTEMBER, 20, 10, 30);
 
         Task taskOne = new Task(
                 "Study English",
@@ -28,11 +31,11 @@ public class Main {
                 deadlineTaskTwo
         );
 
-        TaskManager manager = new TaskManager();
+        TaskService service = new TaskService();
 
-        manager.addTask(taskOne);
-        manager.addTask(taskTwo);
+        service.createTask(taskOne);
+        service.createTask(taskTwo);
 
-        manager.listTasks();
+        System.out.println(service.findAll());
     }
 }
